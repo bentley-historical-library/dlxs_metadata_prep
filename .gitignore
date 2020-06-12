@@ -1,0 +1,7 @@
+bhl-common/
+*.pyc
+config.cfg
+polar_bear_samples/
+collections/
+.vscode
+venv/

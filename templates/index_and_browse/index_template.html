@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head data-c="{{ COLLID }}" data-encoding-type="monograph">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Selections from the {{ COLLECTION_TITLE }}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../b/bhl-common/bootstrap/css/bootstrap.min.css">
+
+    <!-- BHL Browse CSS -->
+    <link href="../../b/bhl-common/css/bhl-textclass.css" rel="stylesheet">
+
+    <!-- DLXS CSS -->
+    <link rel="stylesheet" type="text/css" href="../../b/bhl-common/textclass-specific.css">
+
+    <!-- Fonts -->
+    <link href="../../b/bhl-common/fonts/fontawesome-all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- match height -->
+    <script src="../../b/bhl-common/js/jquery.matchHeight.js" type="text/javascript"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="defaultbody" bgcolor="#ffffff">
+    <header>
+      <!-- Begin DLXS Header -->
+      <div class="navheadTable">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td height="43" id="hdr1" align="left" class="hdrcolor">
+                <a name="top"></a><a href="/cgi/t/text/idx{{ COLLECTION_PATH }}?page=home" target="_top">
+                  <img src="../../b/bhl-common//graphics/bhl-fa-smlogo.gif" class="img-responsive" alt="Selections from the {{ COLLECTION_TITLE }}">
+                </a>
+              </td>
+              <td valign="top" align="right" id="hdr2" class="hdrcolor">
+                <table class="globalLinksTable" border="0" cellspacing="0" cellspacing="1" cellpadding="0"></table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- End DLXS Header -->
+
+      <!-- Begin DLXS Navigation -->   
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li role="presentation" class="active"><a href="{{ COLLECTION_PATH }}?page=home">Home</a></li>
+            <li role="presentation"><a href="{{ COLLECTION_PATH }}?page={{ BIB_OR_SIMPLE }}">Search</a></li>
+            <li role="presentation"><a href="browse.html">Browse</a></li>
+            <li role="presentation"><a href="{{ COLLECTION_PATH }}?page=bbaglist">Bookbag</a></li>
+            <li role="presentation"><a href="/t/text/help/search-intro.html">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" role="search" action="/cgi/t/text/text-idx?" method="get">
+            <input type="hidden" name="type" value="{{ BIB_OR_SIMPLE }}">
+            <input type="hidden" name="c" value="{{ COLLID }}">
+            <div class="form-group">
+              <label for="search-idno">Search this collection</label> <input type="text" class="form-control" id="search-idno" name="q1" size="15">
+            </div>
+            <button type="submit" class="btn btn-sm btn-default">Search</button>
+          </form>
+        </div>
+      </nav>
+      <!-- End DLXS Navigation -->
+    </header>
+
+    <main>
+      <!-- Begin header image -->
+      <div class="container">
+        <div class="row">
+          <section>
+            <img class="img-responsive" src="{{ HEADER_IMAGE }}"/>
+            <h1>Digitized Selections from the <cite>{{ COLLECTION_TITLE }}</cite></h1>
+          </section>
+        </div>
+      </div>
+      <!-- End header image -->
+
+      <div class="container" id="maincontent">
+        <div class="row">
+          <!-- Begin sidebar -->
+          <div class="col-sm-3 hidden-xs" id="sidebar">
+            <aside>
+              <nav>
+                <h2>Navigation</h2>
+                <ul class="list-unstyled">
+                <li><a href="#" class="text-primary">| Collection Home</a></li>
+                <li><a href="{{ COLLECTION_PATH }}?page={{ BIB_OR_SIMPLE }}" class="text-muted">Search this Collection</a></li>
+                <li><a href="browse.html" class="text-muted">Browse Digitized Contents</a></li>
+                {{ SERIES_NAVIGATION_LIST }}
+                <li><i class="fas fa-archive"></i> <a href="https://quod.lib.umich.edu/b/bhlead/{{ EAD_ID }}" target="_blank" class="text-muted">Collection Finding Aid</a></li>
+                {{ ACCESS_LINK }}
+                {{ COPYRIGHT_LINK }}
+              </nav>
+            </aside>
+          </div>
+          <!-- End sidebar -->
+
+          <!-- Begin overview, contents, and notes -->
+          <div class="col-sm-9">
+            <section>
+                {{ COLLECTION_OVERVIEW }}
+                <div id="contents">
+                  <h2>Digitized Collection Contents</h2>
+                  {{ SERIES_CARDS }}
+                </div>
+                {{ ACCESS_NOTE }}
+                {{ COPYRIGHT_NOTE }}
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+
+    
+
+    <!-- Begin DLXS Footer -->
+    <footer id="footer"><table align="center" width="100%" cellspacing="0" cellpadding="2"><tr>
+    <td align="left" valign="top"><div class="releaseversion">Powered by <a href="http://dlxs.org" target="_top">DLXS</a><br>To comment or inquire about content, contact <a href="*" onmouseover="this.href='m'+'a'+'i'+'l'+'t'+'o'+':'+'b'+'e'+'n'+'t'+'l'+'e'+'y'+'.'+'r'+'e'+'f'+'@'+'u'+'m'+'i'+'c'+'h'+'.'+'e'+'d'+'u'">Bentley Historical Library</a><br>To report errors, contact <a href="*" onmouseover="this.href='m'+'a'+'i'+'l'+'t'+'o'+':'+'d'+'l'+'p'+'s'+'-'+'h'+'e'+'l'+'p'+'@'+'u'+'m'+'i'+'c'+'h'+'.'+'e'+'d'+'u'">DLPS Help</a>
+    </div></td>
+    </tr></table></footer>
+    <!-- End DLXS Footer -->
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="../../b/bhl-common/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.series-cards .series-card').matchHeight();
+    });
+    </script>
+
+    <script type="text/javascript" src="https://quod.lib.umich.edu/t/text/analytics.js"></script>
+  </body>
+</html>

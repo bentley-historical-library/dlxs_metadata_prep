@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head data-c="{{ COLLID }}" data-encoding-type="monograph">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Selections from the {{ COLLECTION_TITLE }}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../b/bhl-common/bootstrap/css/bootstrap.min.css">
+
+    <!-- BHL Browse CSS -->
+    <link href="../../b/bhl-common/css/bhl-textclass.css" rel="stylesheet">
+
+    <!-- DLXS CSS -->
+    <link rel="stylesheet" type="text/css" href="../../b/bhl-common/textclass-specific.css">
+
+    <!-- Fonts -->
+    <link href="../../b/bhl-common/fonts/fontawesome-all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="defaultbody" bgcolor="#ffffff">
+
+    <header>
+      <!-- Begin DLXS Header -->
+      <div class="navheadTable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+      <td height="43" id="hdr1" align="left" class="hdrcolor">
+      <a name="top"></a><a href="/cgi/t/text/idx{{ COLLECTION_PATH }}?page=home" target="_top"><img src="../../b/bhl-common/graphics/bhl-fa-smlogo.gif" class="img-responsive" border="0" alt="Selections from the {{ COLLECTION_TITLE }}"></a>
+      </td>
+      <td valign="top" align="right" id="hdr2" class="hdrcolor">
+      <table border="0" cellspacing="0" cellpadding="1"></table>
+      </td>
+      </tr>
+      </table></div>
+      <!-- End DLXS Header -->
+
+      <!-- Begin DLXS Navigation -->   
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li role="presentation"><a href="{{ COLLECTION_PATH }}?page=home">Home</a></li>
+            <li role="presentation"><a href="{{ COLLECTION_PATH }}?page={{ BIB_OR_SIMPLE }}">Search</a></li>
+            <li role="presentation" class="active"><a href="browse.html">Browse</a></li>
+            <li role="presentation"><a href="{{ COLLECTION_PATH }}?page=bbaglist">Bookbag</a></li>
+            <li role="presentation"><a href="/t/text/help/search-intro.html">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" role="search" action="/cgi/t/text/text-idx?" method="get">
+            <input type="hidden" name="type" value="{{ BIB_OR_SIMPLE }}">
+            <input type="hidden" name="c" value="{{ COLLID }}">
+            <div class="form-group">
+              <label for="search-idno">Search this collection</label> <input type="text" class="form-control" id="search-idno" name="q1" size="15">
+            </div>
+            <button type="submit" class="btn btn-sm btn-default">Search</button>
+          </form>
+        </div>
+      </nav>
+      <!-- End DLXS Navigation -->
+    </header>
+
+    <!-- Begin Collection Breadcrumb -->
+    <div class="container">
+      <ol class="breadcrumb">
+        <li>
+          <a href="{{ COLLECTION_PATH }}?page=home">{{ COLLECTION_TITLE }}</a>
+        </li>
+        <li class="active">Browse</li>
+      </ol>
+    </div>
+    <!-- End Collection Breadcrumb -->
+
+    <!-- Begin BHL Browse -->
+    <main>
+      <div class="container" id="maincontent">
+        <div class="row">
+          <!-- Begin sidebar -->
+          <div class="col-sm-4 hidden-xs" id="sidebarwidth">
+            <div id="sidebarwrapper">
+              <div id="sidebar">
+                <aside>
+                  <nav>
+                    <h2>Navigation</h2>
+                    <ul class="list-unstyled">
+                    <li><a href="index.html" class="text-muted">Collection Home</a></li>
+                    <li><a href="{{ COLLECTION_PATH }}?page={{ BIB_OR_SIMPLE }}" class="text-muted">Search this Collection</a></li>
+                    <li><a href="#" class="text-primary">| Browse Digitized Contents</a></li>
+                    {{ SERIES_NAVIGATION_LIST }}
+                    <li><i class="fas fa-archive"></i> <a href="https://quod.lib.umich.edu/b/bhlead/{{ EAD_ID }}" target="_blank" class="text-muted">Collection Finding Aid</a></li>
+                    {{ ACCESS_LINK }}
+                    {{ COPYRIGHT_LINK }}
+                    </ul>
+                  </nav>
+                </aside>
+              </div>
+            </div>
+          </div>
+          <!-- End sidebar -->
+          <div class="col-sm-8 pull-right">
+            <div class="well" id="browsecontents">
+              <h1>Browse Selections from the <cite>{{ COLLECTION_TITLE }}</cite></h1>
+              <!-- begin contents-->
+              {{ BROWSE_CONTENTS }}
+              <!-- end contents-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- End BHL Browse -->
+
+    <!-- Begin DLXS Footer -->
+    <footer id="footer"><table align="center" width="100%" cellspacing="0" cellpadding="2"><tr>
+    <td align="left" valign="top"><div class="releaseversion">Powered by <a href="http://dlxs.org" target="_top">DLXS</a><br>To comment or inquire about content, contact <a href="*" onmouseover="this.href='m'+'a'+'i'+'l'+'t'+'o'+':'+'b'+'e'+'n'+'t'+'l'+'e'+'y'+'.'+'r'+'e'+'f'+'@'+'u'+'m'+'i'+'c'+'h'+'.'+'e'+'d'+'u'">Bentley Historical Library</a><br>To report errors, contact <a href="*" onmouseover="this.href='m'+'a'+'i'+'l'+'t'+'o'+':'+'d'+'l'+'p'+'s'+'-'+'h'+'e'+'l'+'p'+'@'+'u'+'m'+'i'+'c'+'h'+'.'+'e'+'d'+'u'">DLPS Help</a>
+    </div></td>
+    </tr></table></footer>
+    <!-- End DLXS Footer -->
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="../../b/bhl-common/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- shorten series overview height -->
+    <script src="../../b/bhl-common/js/jquery.shorten.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      var sidebarWidth = $("#sidebarwidth");
+      var sidebarWrapper = $("#sidebarwrapper");
+      var sidebar = $("#sidebar");
+      var sticky = sidebarWidth.offset()["top"];
+      var sidebarBuffer = 115;
+      $(window).scroll(function() {stickySidebar()});
+      $(window).resize(function() {stickySidebar()});
+
+      function stickySidebar() {
+        /* take into account the height of the sidebar, the height of the footer, and margins and padding */
+        var comparable_height = sidebar.outerHeight() + 121 + 50;
+        if (window.pageYOffset >= sticky) {
+          if ((window.outerHeight - comparable_height) >= sidebarBuffer) {
+            sidebarWrapper.addClass("sticky");
+            sidebarWrapper.width(sidebarWidth.outerWidth());
+          } else {
+            sidebarWrapper.removeClass("sticky");
+            sidebarWrapper.width(sidebarWidth.outerWidth())
+          }
+        } else {
+          sidebarWrapper.removeClass("sticky");
+          sidebarWrapper.width(sidebarWidth.outerWidth())
+        }
+      }
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".series-overview").shorten({
+          showChars: 500,
+          moreText: 'show more',
+          lessText: 'show less'
+        });      
+      
+        $('.list-group-item').on('click', function() {
+          $('.glyphicon', this)
+            .toggleClass('glyphicon-chevron-down')
+            .toggleClass('glyphicon-chevron-up');
+        });
+      });
+    </script>
+
+    <script type="text/javascript" src="https://quod.lib.umich.edu/t/text/analytics.js"></script>
+  </body>
+</html>
